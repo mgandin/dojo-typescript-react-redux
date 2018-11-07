@@ -1,10 +1,13 @@
 import React, {SFC} from "react";
 
 interface Props {
-    value: string;
-    onChange: (value: string) => void;
+    name: string;
+    onChange: (name: string) => void;
 }
 
-export const InputComponent: SFC<Props> = ({ value, onChange }) => (
-    <input type="text" value={value} onChange={e => onChange(e.target.value)}/>
+export const InputComponent: SFC<Props> = ({ name, onChange }) => (
+    <div>
+        <input type="text" value={name} onChange={e => onChange(e.target.value)}/>
+        <span>{name}</span>
+    </div>
 );
