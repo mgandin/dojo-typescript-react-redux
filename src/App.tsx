@@ -1,16 +1,28 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { InputComponent } from "./component/InputComponent";
 
-class App extends Component {
+
+interface State {
+    value: string;
+}
+
+interface Props {
+    
+}
+
+class App extends Component<Props,State> {
+
+  state: State = {value: ""}
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
+          <InputComponent value={this.state.value} onChange={typedValue => this.setState({ value: typedValue})} />
+          <span>{this.state.value}</span>
           <a
             className="App-link"
             href="https://reactjs.org"
